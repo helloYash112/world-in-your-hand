@@ -25,7 +25,9 @@ color:rgb(128, 73, 183);
 const TH=styled.th`
 padding:10px;
 `
-
+const TR=styled.tr`
+color:black;
+`
 
 return<SECTION>
 {<TABLE> 
@@ -39,13 +41,13 @@ return<SECTION>
          </tr>
     </THEAD> 
     <tbody> 
-        {books.map((book,index) => ( <tr key={book.key}> 
+        {books.map((book,index) => ( <TR key={book.key}> 
             
             <td>{index+1}</td>
             <td>{book.title}</td> 
             <td>{book.author_name && book.author_name.join(', ')}</td> 
             <td>{book.first_publish_year}</td> 
-            <td>{book.language && book.language.join(', ')}</td></tr> ))} 
+            <td>{book.language && book.language.join(', ')}</td></TR> ))} 
     </tbody> 
 </TABLE>
 }
