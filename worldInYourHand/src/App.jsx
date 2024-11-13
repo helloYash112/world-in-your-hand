@@ -8,7 +8,7 @@ function App() {
 const[book,setBook]=useState(null);
 const[loading,isLoading]=useState(false);
 const check=(loading && !book)? true : false;
-console.log(check);
+
 async function findBook(title){
   isLoading(check=>!check);
   
@@ -20,12 +20,16 @@ async function findBook(title){
     console.error("Error fetching data from Open Library API", error);
   }
 }
+function serchNewTitle(){
+  isLoading(false);
+  setBook(null);
+}
   return (
     <div id='app'>
-    <Header onClickBtn={findBook} />
+    <Header onClickBtn={findBook} onChangeInTitle={serchNewTitle}/>
      <main>
       {check && <h1>Loading....</h1>}
-      {book && <BookList books={book}></BookList>
+      {book && <BookList books={book} ></BookList>
 }
      </main>
     </div>

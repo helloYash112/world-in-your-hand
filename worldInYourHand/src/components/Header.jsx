@@ -51,11 +51,12 @@ font-size: 16px;
 transition: background-color 0.3s ease, transform 0.2s ease;
 `
 
-export default function Header({ onClickBtn }) {
+export default function Header({ onClickBtn,onChangeInTitle }) {
   const [myBook, setMyBook] = useState('');
 
   function udtBookData(event) {
     setMyBook(event.target.value);
+    onChangeInTitle();
   }
 
   return (
